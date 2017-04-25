@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1626302282, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: Localized Text
+  m_EditorClassIdentifier: 
+  languages:
+  - Default
+  - fr
+  fields:
+  - name: Continue
+    values:
+    - Continue
+    - Continuer
+  - name: Start from Beginning
+    values:
+    - Start from Beginning
+    - "\xC0 partir de d\xE9but"
+  - name: Language
+    values:
+    - Language
+    - Langue
+  - name: Quit Program
+    values:
+    - Quit Program
+    - Quitter Programme
+  - name: Quit to Title
+    values:
+    - Quit to Title
+    - Quittez le Titre
+  - name: Save
+    values:
+    - Save
+    - Enregistrer
+  - name: Game saved.
+    values:
+    - Game saved.
+    - "Jeu sauv\xE9."
+  - name: Start from the beginning?
+    values:
+    - Start from the beginning?
+    - "Commen\xE7ons par le d\xE9but ?"
