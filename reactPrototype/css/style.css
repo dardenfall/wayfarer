@@ -31,6 +31,10 @@
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
+.calorie-count {
+  margin-left: 10px;
+}
+
 .card-block {
     flex: 1 1 auto;
     padding: 1.25rem;
