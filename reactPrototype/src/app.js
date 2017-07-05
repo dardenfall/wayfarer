@@ -30,28 +30,49 @@
       });
     }
 
+    addSteps(e){
+      const state = this.state;
+
+      state.steps += parseInt(document.querySelector("#debug-steps").value);
+      this.setState({
+        state
+      });
+
+    }
+
     render() {
+      checkitem();
+
       return (
-        <div id="text-carousel" className="carousel slide" data-ride="carousel" data-wrap="false" interval="false">
-          <div className="row">
-            <div className="col-xs-offset-3 col-xs-6">
-              <div className="carousel-inner">
-                {this.state.activeScenes.map( scene => 
-                  <Scene
-                   calories={this.state.calories} 
-                   steps={this.state.steps}
-                   weather={this.state.weather}
-                   temp={this.state.temp}
-                   time={this.state.time}
-                   scene={scene}
-                   currentScene={this.state.currentScene}
-                   onChoiceMade={this.choiceMade.bind(this)}
-                  />) 
-                }
+        <div>
+          <div id="text-carousel" className="carousel slide" data-ride="carousel" data-wrap="false" interval="false">
+            <div className="row">
+              <div className="col-xs-offset-3 col-xs-6">
+                <div className="carousel-inner">
+                  {this.state.activeScenes.map( scene => 
+                    <Scene
+                     calories={this.state.calories} 
+                     steps={this.state.steps}
+                     weather={this.state.weather}
+                     temp={this.state.temp}
+                     time={this.state.time}
+                     scene={scene}
+                     currentScene={this.state.currentScene}
+                     onChoiceMade={this.choiceMade.bind(this)}
+                    />) 
+                  }
+                </div>
               </div>
             </div>
           </div>
-        </div> 
+          <div id='debug'>
+            <h3>debug:</h3>
+            <div className="input-group">
+              <input id="debug-steps" type="text" className="form-control" placeholder="Number of steps" aria-describedby="basic-addon2"></input>
+              <span className="input-group-addon" id="basic-addon2" onClick={this.addSteps.bind(this)}>add</span>
+            </div>
+          </div> 
+        </div>
       )
     }
   }
@@ -75,6 +96,7 @@
     }
 
     render(){
+
       let act = "item";
       console.log(this.props)
       if(this.props.currentScene === this.props.scene.id ){
@@ -137,8 +159,8 @@
         id: 0,
         text: "It is <time>.  The day is <weather> and <temp>. You are currently in the middle of a tall, green forest. You slept well last night.",
         choices:[
-          {text:"Head down the trail further into the forest.", cost: null, nextScene:1 },
-          {text:"Forage for food.", cost: null, nextScene:1},
+          {text:"Head down the trail further into the forest.", cost: null, nextScene:4 },
+          {text:"Forage for food.", cost: null, nextScene:4},
           {text:"Use a skill", cost: null, nextScene:1}
         ]
       },
@@ -165,9 +187,22 @@
         id: 3,
         text: "You rig your fishing pole and head down to the nearby brook. You cast your rod for a hour or so, but nothing is biting. Dreaming of the one that got away, you head back to your camp.",
         choices:[
-          {text:"Done", cost:null, nextScene:4}
+          {text:"Done", cost:null, nextScene:5}
         ]
-      }
+      },
+      {
+        id: 4,
+        text: "Hey Look, other choices work!!.",
+        choices:[
+          {text:"Goback", cost:null, nextScene:0}
+        ]
+      },
+      {
+        id: 5,
+        text: "YOU WIN.",
+        choices:[
+        ]
+      },            
 
     ],
 
@@ -202,19 +237,18 @@
   // });
 
   function checkitem(){
-    var $this = $('#text-carousel');
 
     if($('.carousel-content').length === 1){
-      $this.children('.left.carousel-control').hide();
-      $this.children('.right.carousel-control').hide();
+      $('.left.carousel-control').hide();
+      $('.right.carousel-control').hide();
     }else if($('.carousel-inner .item:first').hasClass('active')) {
-      $this.children('.left.carousel-control').hide();
-      $this.children('.right.carousel-control').show();
+      $('.left.carousel-control').hide();
+      $('.right.carousel-control').show();
     } else if($('.carousel-inner .item:last').hasClass('active')) {
-      $this.children('.left.carousel-control').show();
-      $this.children('.right.carousel-control').hide();
+      $('.left.carousel-control').show();
+      $('.right.carousel-control').hide();
     } else {
-      $this.children('.carousel-control').show();
+      $('.carousel-control').show();
     } 
   }
 
