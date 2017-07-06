@@ -254,3 +254,14 @@
 
 
 })(jQuery);
+
+var headlines=document.querySelector('h2');
+var stats=document.querySelector('.stat');
+var result = [];
+headlines.forEach(function(element, index){
+  result[element.innerHTML] = stats[index];
+})
+
+['a','b','c']
+['1','2','3']
+[{a:'1'}, {b:'2'}, {c:'3'}]
